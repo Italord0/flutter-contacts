@@ -19,11 +19,57 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  List _contactList = [];
+  List _contactList = ["Jefferson","Julião do ZapZap"];
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Contatos"),
+        backgroundColor: Colors.red,
+      ),
+      body: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(8),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child:TextField(
+                    decoration: InputDecoration(
+                        labelText: "Contato a ser adicionado",
+                        labelStyle: TextStyle(
+                            color: Colors.red
+                        )
+                    ),
+                  ) ,
+                ),
+                MaterialButton(
+                  color: Colors.red,
+                  child: Text("Adicionar"),
+                  textColor: Colors.white,
+                  onPressed: (){
+
+                  },
+                )
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _contactList.length,
+                itemBuilder: (context,index){
+                  return ListTile(
+                    leading: Icon(Icons.account_circle),
+                    title: Text(_contactList[index]),
+                    subtitle: Text("Numero vem aqui"),
+                    trailing: Icon(Icons.phone),
+                  );
+                }),
+          )
+        ],
+      ),
+    );
   }
 
   Future<File> _getData()  async {
