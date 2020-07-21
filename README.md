@@ -1,6 +1,6 @@
 # flutter_contacts
 
-A new Flutter application.
+Simple contact list using Flutter
 
 ## Getting Started
 
