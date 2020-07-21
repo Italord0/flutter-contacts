@@ -36,4 +36,12 @@ class _HomeState extends State<Home> {
     final file = await _getData();
     return file.writeAsString(data);
   }
+
+  Future<String> _readData() async{
+    try{
+      final file = await _getData();
+    }catch(e){
+      null;
+    }
+  }
 }
